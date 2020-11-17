@@ -68,7 +68,6 @@
                                             <outlet property="bountyImg" destination="awm-9g-W9D" id="Ui4-QT-Rus"/>
                                             <outlet property="bountyTx" destination="yUR-fd-s63" id="k1y-qM-Qlx"/>
                                             <outlet property="nameTx" destination="eXe-u7-zJb" id="oDc-2F-ir6"/>
-                                            <segue destination="40C-cY-lTN" kind="show" id="NCl-bv-41R"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -85,16 +84,17 @@
                     </view>
                     <connections>
                         <outlet property="onePieceCollectionView" destination="Lkr-VQ-qIU" id="4R0-ja-NDr"/>
+                        <segue destination="40C-cY-lTN" kind="presentation" identifier="showDetails" id="fKH-63-XZ0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G8P-E4-l5c" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="11.594202898550726" y="-30.133928571428569"/>
         </scene>
-        <!--View Controller-->
+        <!--DetailVC-->
         <scene sceneID="4Lj-lR-a2M">
             <objects>
-                <viewController id="40C-cY-lTN" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DetailVC" title="DetailVC" id="40C-cY-lTN" customClass="DetailVC" customModule="FastCampus" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="L8q-KR-Gkz">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -118,12 +118,22 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FIU-pe-ucx">
+                                <rect key="frame" x="374.5" y="20" width="19.5" height="22"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" image="clear" catalog="system"/>
+                                <connections>
+                                    <action selector="backPressBtn:" destination="40C-cY-lTN" eventType="touchUpInside" id="de9-hx-PXX"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Jdi-vj-VjD"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="dxU-Sp-TKP" firstAttribute="centerX" secondItem="L8q-KR-Gkz" secondAttribute="centerX" id="4XI-dT-NKO"/>
+                            <constraint firstItem="Jdi-vj-VjD" firstAttribute="trailing" secondItem="FIU-pe-ucx" secondAttribute="trailing" constant="20" id="7jf-Nx-BeK"/>
                             <constraint firstItem="yzA-13-BoX" firstAttribute="centerX" secondItem="Zly-N9-jcD" secondAttribute="centerX" id="9l4-Is-C69"/>
+                            <constraint firstItem="FIU-pe-ucx" firstAttribute="top" secondItem="Jdi-vj-VjD" secondAttribute="top" constant="20" id="CDT-S0-ARu"/>
                             <constraint firstItem="Zly-N9-jcD" firstAttribute="top" secondItem="dxU-Sp-TKP" secondAttribute="bottom" constant="65" id="IJi-8m-tLK"/>
                             <constraint firstItem="Zly-N9-jcD" firstAttribute="centerX" secondItem="dxU-Sp-TKP" secondAttribute="centerX" id="VKf-mN-dIB"/>
                             <constraint firstItem="yzA-13-BoX" firstAttribute="top" secondItem="Zly-N9-jcD" secondAttribute="bottom" constant="45" id="t2d-F6-YTS"/>
@@ -131,13 +141,19 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="akB-UE-fTS"/>
+                    <connections>
+                        <outlet property="bountyTx" destination="yzA-13-BoX" id="lhk-GX-c75"/>
+                        <outlet property="boutyImg" destination="dxU-Sp-TKP" id="oaL-6W-nmf"/>
+                        <outlet property="nameTx" destination="Zly-N9-jcD" id="6ae-cr-iNU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fka-pM-Oj8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="868" y="-30"/>
+            <point key="canvasLocation" x="866.66666666666674" y="-30.133928571428569"/>
         </scene>
     </scenes>
     <resources>
+        <image name="clear" catalog="system" width="128" height="114"/>
         <image name="homeIcGreenpowder" width="51" height="51"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

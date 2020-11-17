@@ -20,6 +20,20 @@ class OnePieceVC: UIViewController{
         onePieceCollectionView.delegate = self
     }
 
+    // 보내기 전에
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showDetails" {
+            let vc = segue.destination as? DetailVC
+            vc?.modalPresentationStyle = .fullScreen
+            if let index = sender as? Int{
+                vc?.image = bountyInformations[index].image
+                vc?.name = bountyInformations[index].name
+                vc?.bounty = bountyInformations[index].Bounty
+            }
+        }
+    }
+    
+    
     func setinformation(){
         
         let data1 = boundyInfo(image: "homeIcCoffee", name: "커피", Bounty: 30000)
@@ -47,12 +61,19 @@ extension OnePieceVC : UICollectionViewDataSource{
     }
 }
 
+extension OnePieceVC : UICollectionViewDelegate{
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print("현재 위치는?\(indexPath.row)")
+        
+        performSegue(withIdentifier: "showDetails", sender: indexPath.row)
+    }
+}
+
 extension OnePieceVC : UICollectionViewDelegateFlowLayout{
     
 }
-extension OnePieceVC : UICollectionViewDelegate{
-    
-}
+
 
 
 // MARK: CollectionView Cell 관련

@@ -24,6 +24,7 @@ class OnePieceVC: UIViewController{
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showDetails" {
             let vc = segue.destination as? DetailVC
+            
             vc?.modalPresentationStyle = .fullScreen
             if let index = sender as? Int{
                 vc?.image = bountyInformations[index].image

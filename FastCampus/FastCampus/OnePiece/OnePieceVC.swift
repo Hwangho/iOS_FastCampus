@@ -8,7 +8,6 @@
 import UIKit
 
 class OnePieceVC: UIViewController{
-
     @IBOutlet weak var onePieceCollectionView: UICollectionView!
     
     var bountyInformations : [boundyInfo] = []
@@ -35,7 +34,6 @@ class OnePieceVC: UIViewController{
     
     
     func setinformation(){
-        
         let data1 = boundyInfo(image: "homeIcCoffee", name: "커피", Bounty: 30000)
         let data2 = boundyInfo(image: "homeIcGreenpowder", name: "녹차 파우더", Bounty: 23000)
         let data3 = boundyInfo(image: "homeIcHssyrup", name: "헤이즐럿 시럽", Bounty: 312000)
@@ -64,14 +62,22 @@ extension OnePieceVC : UICollectionViewDataSource{
 extension OnePieceVC : UICollectionViewDelegate{
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("현재 위치는?\(indexPath.row)")
+        print("현재 위치는? ---> \(indexPath.row)")
         
         performSegue(withIdentifier: "showDetails", sender: indexPath.row)
     }
 }
 
 extension OnePieceVC : UICollectionViewDelegateFlowLayout{
-    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let itemSpacing : CGFloat = 10
+        let textAreaHeight : CGFloat =  65
+        
+        let width : CGFloat = (collectionView.bounds.width - itemSpacing)/2
+        let height : CGFloat = width*10/7 + textAreaHeight
+        
+        return CGSize(width: width, height: height)
+    }
 }
 
 
@@ -84,13 +90,11 @@ class OnPoecCVCell : UICollectionViewCell{
     @IBOutlet weak var nameTx: UILabel!
     @IBOutlet weak var bountyTx: UILabel!
     
-    
     func setdata(image: String, name:String, bounty: Int){
         self.bountyImg.image = UIImage(named: image)
         self.nameTx.text = name
         self.bountyTx.text = "\(bounty)"
     }
-    
 }
 
 

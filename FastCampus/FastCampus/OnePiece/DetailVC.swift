@@ -14,8 +14,7 @@ class DetailVC: UIViewController {
     @IBOutlet weak var bountyTx: UILabel!
     @IBOutlet weak var nameLabelCenter: NSLayoutConstraint!
     @IBOutlet weak var bountyLabelCenter: NSLayoutConstraint!
-    
-    
+        
     var image : String?
     var name : String?
     var bounty : Int?
@@ -36,7 +35,7 @@ class DetailVC: UIViewController {
 //        nameLabelCenter.constant = view.bounds.width
 //        bountyLabelCenter.constant = view.bounds.width
         
-        nameTx.transform = CGAffineTransform(translationX: view.bounds.width, y: 0).scaledBy(x: 3, y: 3).rotated(by: 180)
+        nameTx.transform = CGAffineTransform(translationX: view.bounds.width, y: 0).scaledBy(x: 3, y: 3).rotated(by: 180)   // ScaleBy = 3, 180도 회전 되어 있으며 화면 오른쪽에서 나타 남
         bountyTx.transform = CGAffineTransform(translationX: view.bounds.width, y: 0).scaledBy(x: 3, y: 3).rotated(by: 180)
         
         nameTx.alpha = 0        // 투명도
@@ -46,17 +45,7 @@ class DetailVC: UIViewController {
     private func showAnimation(){
         nameLabelCenter.constant = 0
         bountyLabelCenter.constant = 0
-        
-//        UIView.animate(withDuration: 0.3){
-//            self.view.layoutIfNeeded()
-//        }
-        
-//        UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseIn, animations:  {self.view.layoutIfNeeded()}, completion: nil)
-   
-//        UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 2, initialSpringVelocity: 6, options: .allowUserInteraction, animations: {self.view.layoutIfNeeded()}, completion: nil)
-//
-//        UIView.transition(with: boutyImg, duration: 0.3, options: .transitionFlipFromLeft,animations: nil, completion: nil)
-        
+
         UIView.animate(withDuration: 0.8, delay: 0, usingSpringWithDamping: 0.6, initialSpringVelocity: 2, options: .allowUserInteraction, animations: {
             self.nameTx.transform = CGAffineTransform.identity
             self.nameTx.alpha = 1

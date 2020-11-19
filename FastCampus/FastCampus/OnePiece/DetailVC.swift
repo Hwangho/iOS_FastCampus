@@ -58,11 +58,12 @@ class DetailVC: UIViewController {
         UIView.transition(with: boutyImg, duration: 0.3, options: .transitionFlipFromLeft,animations: nil, completion: nil)
     }
     
+    
     func updateUI(){
         if let image = self.image, let name = self.name, let bounty = self.bounty {
             self.boutyImg.image = UIImage(named: image)
             self.nameTx.text = name
-            self.bountyTx.text = " \(bounty)"
+            self.bountyTx.text = "\(bounty)"
         }
     }
 

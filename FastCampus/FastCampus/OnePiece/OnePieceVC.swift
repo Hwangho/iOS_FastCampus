@@ -18,12 +18,11 @@ class OnePieceVC: UIViewController{
         onePieceCollectionView.dataSource = self
         onePieceCollectionView.delegate = self
     }
-
-    // 보내기 전에
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "showDetails" {
+        if segue.identifier == "showDetails"{
             let vc = segue.destination as? DetailVC
-            vc?.modalPresentationStyle = .fullScreen
+            
             if let index = sender as? Int{
                 vc?.image = bountyInformations[index].image
                 vc?.name = bountyInformations[index].name
@@ -62,8 +61,7 @@ extension OnePieceVC : UICollectionViewDataSource{
 extension OnePieceVC : UICollectionViewDelegate{
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("현재 위치는? ---> \(indexPath.row)")
-        
+        print("현재 누른 위치는?? --> \(indexPath.row)")
         performSegue(withIdentifier: "showDetails", sender: indexPath.row)
     }
 }

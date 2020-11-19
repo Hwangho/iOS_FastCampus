@@ -91,6 +91,36 @@
             </objects>
             <point key="canvasLocation" x="11.594202898550726" y="-30.133928571428569"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="ixd-2I-qPW">
+            <objects>
+                <viewController id="fi2-0b-TlG" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="cwR-s4-73a">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="m3X-db-3DW"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="whC-rL-RHV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="12" y="692"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="kqM-xK-uzU">
+            <objects>
+                <viewController id="Cg9-7J-VzO" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="TA1-jV-XPu">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="2pJ-sr-th3"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="G0M-pg-xr6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="867" y="692"/>
+        </scene>
         <!--DetailVC-->
         <scene sceneID="4Lj-lR-a2M">
             <objects>
@@ -100,20 +130,20 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dxU-Sp-TKP">
-                                <rect key="frame" x="57" y="151" width="300" height="300"/>
+                                <rect key="frame" x="57" y="100" width="300" height="300"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="300" id="nBe-Cl-SOu"/>
                                     <constraint firstAttribute="height" constant="300" id="qqH-aA-OJ4"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yzA-13-BoX">
-                                <rect key="frame" x="176" y="593" width="62" height="32"/>
+                                <rect key="frame" x="176" y="542" width="62" height="32"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                 <color key="textColor" systemColor="systemGray2Color"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zly-N9-jcD">
-                                <rect key="frame" x="176" y="516" width="62" height="32"/>
+                                <rect key="frame" x="176" y="465" width="62" height="32"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -137,13 +167,15 @@
                             <constraint firstItem="Zly-N9-jcD" firstAttribute="top" secondItem="dxU-Sp-TKP" secondAttribute="bottom" constant="65" id="IJi-8m-tLK"/>
                             <constraint firstItem="Zly-N9-jcD" firstAttribute="centerX" secondItem="dxU-Sp-TKP" secondAttribute="centerX" id="VKf-mN-dIB"/>
                             <constraint firstItem="yzA-13-BoX" firstAttribute="top" secondItem="Zly-N9-jcD" secondAttribute="bottom" constant="45" id="t2d-F6-YTS"/>
-                            <constraint firstItem="dxU-Sp-TKP" firstAttribute="top" secondItem="Jdi-vj-VjD" secondAttribute="top" constant="151" id="tgq-oG-edf"/>
+                            <constraint firstItem="dxU-Sp-TKP" firstAttribute="top" secondItem="Jdi-vj-VjD" secondAttribute="top" constant="100" id="tgq-oG-edf"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="akB-UE-fTS"/>
                     <connections>
+                        <outlet property="bountyLabelCenter" destination="9l4-Is-C69" id="8p0-Fj-NZe"/>
                         <outlet property="bountyTx" destination="yzA-13-BoX" id="lhk-GX-c75"/>
                         <outlet property="boutyImg" destination="dxU-Sp-TKP" id="oaL-6W-nmf"/>
+                        <outlet property="nameLabelCenter" destination="VKf-mN-dIB" id="87R-yN-hXp"/>
                         <outlet property="nameTx" destination="Zly-N9-jcD" id="6ae-cr-iNU"/>
                     </connections>
                 </viewController>

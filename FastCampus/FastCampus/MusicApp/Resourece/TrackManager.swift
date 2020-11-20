@@ -41,6 +41,13 @@ class TrackManager {
         return items
     }
     
+    // TODO: 인덱스에 맞는 트랙 로드하기
+    func track(at index: Int) -> Track? {
+        let playerItem = tracks[index]
+        let track = playerItem.convertToTrack()
+        return track
+    }
+    
     // TODO: 앨범 로딩메소드 구현
     func loadAlbums(tracks: [AVPlayerItem]) -> [Album] {
         let trackList: [Track] = tracks.compactMap { $0.convertToTrack() }

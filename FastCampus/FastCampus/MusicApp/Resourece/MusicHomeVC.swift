@@ -6,8 +6,11 @@
 //
 
 import UIKit
+import AVFoundation
 
 class MusicHomeVC: UIViewController {
+    
+    let trackManager : TrackManager = TrackManager()
     
     @IBOutlet weak var MusicCollectionView: UICollectionView!
     
@@ -21,13 +24,34 @@ class MusicHomeVC: UIViewController {
 
 extension MusicHomeVC : UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return trackManager.tracks.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = MusicCollectionView.dequeueReusableCell(withReuseIdentifier: MUsicHomeCVCell.identifier, for: indexPath) as? MUsicHomeCVCell else {return UICollectionViewCell()}
         
+        let item  = trackManager.track(at: indexPath.row)
+        cell.updateUI(item: item)
         return cell
+    }
+    
+    func  collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        switch kind {
+        case UICollectionView.elementKindSectionHeader:
+            guard let item  = trackManager.todayTracks else {
+                return UICollectionReusableView()
+            }
+            
+            guard let header = MusicCollectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: MuiscHomeCVHeaderCell.identifier, for: indexPath) as? MuiscHomeCVHeaderCell else {return UICollectionReusableView()}
+            
+            header.update(with: item)
+            header.tapHandler = {item -> Void in
+                print("----> Item title : \(item.convertToTrack()?.title)")
+            }
+            return header
+        default:
+            return UICollectionReusableView()
+        }
     }
 }
 
@@ -54,7 +78,49 @@ class MUsicHomeCVCell : UICollectionViewCell{
     @IBOutlet weak var titleTx: UILabel!
     @IBOutlet weak var subTitleTx: UILabel!
     
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        musicImg.layer.cornerRadius = 4
+        subTitleTx.textColor = UIColor.systemGray2
+    }
+    
+    func updateUI(item : Track?){
+        guard let track = item else {return }
+        musicImg.image = track.artwork
+        titleTx.text = track.title
+        subTitleTx.text = track.artist
+    }
 }
+
+class MuiscHomeCVHeaderCell : UICollectionReusableView{
+    static let identifier = "MuiscHomeCVHeaderCell"
+    
+    @IBOutlet weak var albumImg: UIImageView!
+    @IBOutlet weak var discriptionLabel: UILabel!
+    
+    var item : AVPlayerItem?
+    var tapHandler : ((AVPlayerItem) -> Void)?
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        albumImg.layer.cornerRadius = 4
+    }
+    
+    func update(with item : AVPlayerItem){
+        self.item = item
+        guard let  track = item.convertToTrack() else {return}
+        
+        self.albumImg.image = track.artwork
+        self.discriptionLabel.text = "Today's Pick is \n" + "\(track.artist)'s album - \(track.albumName), Let Listen..."
+    }
+    
+    @IBAction func albumPressBtn(_ sender: Any) {
+        guard let todaysItem = item else {return}
+            tapHandler?(todaysItem)
+        }
+    }
+
 
 // MARK: Struct 구조체
 struct Album{

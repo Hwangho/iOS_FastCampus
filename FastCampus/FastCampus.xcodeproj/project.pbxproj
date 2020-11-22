@@ -44,6 +44,9 @@
 		0E3747242567B65800E2DB4A /* [ asleep ].mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0E37470F2567B65800E2DB4A /* [ asleep ].mp3 */; };
 		0E3747252567B65800E2DB4A /* when the leaves start falling.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0E3747102567B65800E2DB4A /* when the leaves start falling.mp3 */; };
 		0E37472A2567C36900E2DB4A /* DefaultStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3747292567C36900E2DB4A /* DefaultStyle.swift */; };
+		0EEC62E0256A3B8200A26AA8 /* MusicDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0EEC62DF256A3B8200A26AA8 /* MusicDetail.storyboard */; };
+		0EEC62E5256A3DD600A26AA8 /* MusicDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EEC62E4256A3DD600A26AA8 /* MusicDetailVC.swift */; };
+		0EEC62EA256A3F5F00A26AA8 /* SimplePlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EEC62E9256A3F5F00A26AA8 /* SimplePlayer.swift */; };
 		567FF9E0B66E7B906F923591 /* Pods_FastCampusTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CFA3FC5CF20AD5ACFB2F8F5 /* Pods_FastCampusTests.framework */; };
 		6829112612ACDBF978DD41A4 /* Pods_FastCampus_FastCampusUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63763DFE65A272D366B4EA1E /* Pods_FastCampus_FastCampusUITests.framework */; };
 		7886CAA394BF679AFC8BE030 /* Pods_FastCampus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EFC95CDC8141D9AD7E2ADA0 /* Pods_FastCampus.framework */; };
@@ -111,6 +114,9 @@
 		0E37470F2567B65800E2DB4A /* [ asleep ].mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "[ asleep ].mp3"; sourceTree = "<group>"; };
 		0E3747102567B65800E2DB4A /* when the leaves start falling.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "when the leaves start falling.mp3"; sourceTree = "<group>"; };
 		0E3747292567C36900E2DB4A /* DefaultStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultStyle.swift; sourceTree = "<group>"; };
+		0EEC62DF256A3B8200A26AA8 /* MusicDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MusicDetail.storyboard; sourceTree = "<group>"; };
+		0EEC62E4256A3DD600A26AA8 /* MusicDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicDetailVC.swift; sourceTree = "<group>"; };
+		0EEC62E9256A3F5F00A26AA8 /* SimplePlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimplePlayer.swift; sourceTree = "<group>"; };
 		0EFC95CDC8141D9AD7E2ADA0 /* Pods_FastCampus.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FastCampus.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		357E8D6213FA1FD69F058E29 /* Pods-FastCampusTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FastCampusTests.release.xcconfig"; path = "Target Support Files/Pods-FastCampusTests/Pods-FastCampusTests.release.xcconfig"; sourceTree = "<group>"; };
 		3D6DC0E6C5515098C313DB2C /* Pods-FastCampusTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FastCampusTests.debug.xcconfig"; path = "Target Support Files/Pods-FastCampusTests/Pods-FastCampusTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -236,6 +242,7 @@
 			isa = PBXGroup;
 			children = (
 				0E3746E02566318900E2DB4A /* MusicApp.storyboard */,
+				0EEC62DF256A3B8200A26AA8 /* MusicDetail.storyboard */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -246,8 +253,10 @@
 				0E3746E52566327500E2DB4A /* MusicHomeVC.swift */,
 				0E3746EA25663EF300E2DB4A /* TrackManager.swift */,
 				0E3746EF256644F600E2DB4A /* Extension+AVPlayerItem.swift */,
-				0E3746FB2567B61100E2DB4A /* Music */,
 				0E3747292567C36900E2DB4A /* DefaultStyle.swift */,
+				0EEC62E4256A3DD600A26AA8 /* MusicDetailVC.swift */,
+				0E3746FB2567B61100E2DB4A /* Music */,
+				0EEC62E9256A3F5F00A26AA8 /* SimplePlayer.swift */,
 			);
 			path = Resourece;
 			sourceTree = "<group>";
@@ -420,6 +429,7 @@
 				0E3747192567B65800E2DB4A /* i fell in love with you one night in september..mp3 in Resources */,
 				0E3747202567B65800E2DB4A /* Sleepless.mp3 in Resources */,
 				0E3747182567B65800E2DB4A /* Bike Rides On The Block.mp3 in Resources */,
+				0EEC62E0256A3B8200A26AA8 /* MusicDetail.storyboard in Resources */,
 				0E3746C52563B06A00E2DB4A /* OnePiece.storyboard in Resources */,
 				0E3747152567B65800E2DB4A /* Chamomile Tea.mp3 in Resources */,
 				0E3747232567B65800E2DB4A /* valentin.mp3 in Resources */,
@@ -564,6 +574,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0EEC62EA256A3F5F00A26AA8 /* SimplePlayer.swift in Sources */,
 				0E3746CB2563BEB200E2DB4A /* DetailVC.swift in Sources */,
 				0E3746C62563B06A00E2DB4A /* OnePieceVC.swift in Sources */,
 				0E3746F0256644F600E2DB4A /* Extension+AVPlayerItem.swift in Sources */,
@@ -573,6 +584,7 @@
 				0E3746E62566327500E2DB4A /* MusicHomeVC.swift in Sources */,
 				0E3746812563AF2E00E2DB4A /* AppDelegate.swift in Sources */,
 				0E3746832563AF2E00E2DB4A /* SceneDelegate.swift in Sources */,
+				0EEC62E5256A3DD600A26AA8 /* MusicDetailVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

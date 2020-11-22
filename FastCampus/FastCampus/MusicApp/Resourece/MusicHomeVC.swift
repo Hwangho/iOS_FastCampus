@@ -47,6 +47,14 @@ extension MusicHomeVC : UICollectionViewDataSource {
             header.update(with: item)
             header.tapHandler = {item -> Void in
                 print("----> Item title : \(item.convertToTrack()?.title)")
+                
+                let storyboard = UIStoryboard.init(name: "MusicDetail", bundle: nil)
+                
+                guard let detailVC = storyboard.instantiateViewController(withIdentifier: MusicDetailVC.identifier) as? MusicDetailVC else{return }
+                let item = self.trackManager.tracks[indexPath.item]
+                detailVC.simplePlayer.replaceCurrentItem(with: item)
+                
+                self.present(detailVC, animated: true, completion: nil)
             }
             return header
         default:
@@ -57,6 +65,16 @@ extension MusicHomeVC : UICollectionViewDataSource {
 
 extension MusicHomeVC : UICollectionViewDelegate{
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let storyboard = UIStoryboard.init(name: "MusicDetail", bundle: nil)
+        
+        guard let detailVC = storyboard.instantiateViewController(withIdentifier: MusicDetailVC.identifier) as? MusicDetailVC else{return }
+        
+        let item = trackManager.tracks[indexPath.item]
+        detailVC.simplePlayer.replaceCurrentItem(with: item)
+        
+        present(detailVC, animated: true, completion: nil)
+    }
 }
 
 extension MusicHomeVC : UICollectionViewDelegateFlowLayout{

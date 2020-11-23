@@ -18,6 +18,7 @@ class MusicHomeVC: UIViewController {
         super.viewDidLoad()
         MusicCollectionView.dataSource = self
         MusicCollectionView.delegate = self
+
     }
     
 }

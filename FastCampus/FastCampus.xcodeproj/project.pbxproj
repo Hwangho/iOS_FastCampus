@@ -255,8 +255,8 @@
 				0E3746EF256644F600E2DB4A /* Extension+AVPlayerItem.swift */,
 				0E3747292567C36900E2DB4A /* DefaultStyle.swift */,
 				0EEC62E4256A3DD600A26AA8 /* MusicDetailVC.swift */,
-				0E3746FB2567B61100E2DB4A /* Music */,
 				0EEC62E9256A3F5F00A26AA8 /* SimplePlayer.swift */,
+				0E3746FB2567B61100E2DB4A /* Music */,
 			);
 			path = Resourece;
 			sourceTree = "<group>";

@@ -16,6 +16,9 @@ class MusicDetailVC: UIViewController {
     @IBOutlet weak var albumImage: UIImageView!
     @IBOutlet weak var titleText: UILabel!
     @IBOutlet weak var artistText: UILabel!
+    @IBOutlet weak var alabumView: UIView!
+    @IBOutlet weak var scrollView: UIScrollView!
+    
     
     @IBOutlet weak var playControlBtn: UIButton!
     @IBOutlet weak var timeSlider: UISlider!
@@ -23,22 +26,37 @@ class MusicDetailVC: UIViewController {
     @IBOutlet weak var totalTimeLabel: UILabel!
     
     let simplePlayer = SimplePlayer.shared
+    var ButtnCilckNum : Bool  = false
     
     var timeObserver : Any?
     var isSeeking : Bool = false
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.scrollView.alpha = 0
         updatePlayButton()
         updateTime(time: CMTime.zero)
         // TODO: TimeObserver 구현
       //  CMTime(seconds: 1, preferredTimescale: 10)   // 몇초로 분할 시킬 거냐?
         timeObserver = simplePlayer.addPeriodicTimeObserver(forInterval:  CMTime(seconds: 1, preferredTimescale: 10), queue: DispatchQueue.main) { time in
             self.updateTime(time: time)
+            
+            
         }
     }
+    func performalbumImag(){
+        switch ButtnCilckNum {
+        case true:
+            self.scrollView.alpha = 1
+            self.alabumView.alpha = 0.4
+            
+            
+        default:
+            self.scrollView.alpha = 0
+            self.alabumView.alpha = 0
+        }
+    }
+    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -53,6 +71,20 @@ class MusicDetailVC: UIViewController {
         simplePlayer.replaceCurrentItem(with: nil)
         
     }
+    
+    @IBAction func albumImgPressBtn(_ sender: Any) {
+        if ButtnCilckNum == true {
+            ButtnCilckNum = false
+        }else{
+            ButtnCilckNum = true
+        }
+        
+        performalbumImag()
+        UIView.transition(with: albumImage, duration: 0.3, options: .transitionFlipFromLeft, animations: nil, completion: nil)
+        UIView.transition(with: scrollView, duration: 0.3, options: .transitionFlipFromLeft, animations: nil, completion: nil)
+         }
+    
+    
     
     @IBAction func beginDrag(_ sender: UISlider) {
         isSeeking = true

@@ -10,15 +10,13 @@ import Foundation
 import AVFoundation
 
 class MusicDetailVC: UIViewController {
-
-   static let identifier = "MusicDetailVC"
+    static let identifier = "MusicDetailVC"
     
     @IBOutlet weak var albumImage: UIImageView!
     @IBOutlet weak var titleText: UILabel!
     @IBOutlet weak var artistText: UILabel!
     @IBOutlet weak var alabumView: UIView!
     @IBOutlet weak var scrollView: UIScrollView!
-    
     
     @IBOutlet weak var playControlBtn: UIButton!
     @IBOutlet weak var timeSlider: UISlider!
@@ -40,24 +38,21 @@ class MusicDetailVC: UIViewController {
       //  CMTime(seconds: 1, preferredTimescale: 10)   // 몇초로 분할 시킬 거냐?
         timeObserver = simplePlayer.addPeriodicTimeObserver(forInterval:  CMTime(seconds: 1, preferredTimescale: 10), queue: DispatchQueue.main) { time in
             self.updateTime(time: time)
-            
-            
         }
     }
+    
     func performalbumImag(){
         switch ButtnCilckNum {
         case true:
             self.scrollView.alpha = 1
             self.alabumView.alpha = 0.4
             
-            
         default:
             self.scrollView.alpha = 0
             self.alabumView.alpha = 0
         }
     }
-    
-    
+        
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         updateTintColor()
@@ -68,8 +63,7 @@ class MusicDetailVC: UIViewController {
         super.viewWillDisappear(animated)
         // TODO: 뷰나갈때 처리 > 심플플레이어
         simplePlayer.pause()
-        simplePlayer.replaceCurrentItem(with: nil)
-        
+        simplePlayer.replaceCurrentItem(with: nil)        
     }
     
     @IBAction func albumImgPressBtn(_ sender: Any) {
@@ -83,8 +77,6 @@ class MusicDetailVC: UIViewController {
         UIView.transition(with: albumImage, duration: 0.3, options: .transitionFlipFromLeft, animations: nil, completion: nil)
         UIView.transition(with: scrollView, duration: 0.3, options: .transitionFlipFromLeft, animations: nil, completion: nil)
          }
-    
-    
     
     @IBAction func beginDrag(_ sender: UISlider) {
         isSeeking = true
@@ -121,7 +113,6 @@ extension MusicDetailVC {
         albumImage.image = track.artwork
         titleText.text = track.title
         artistText.text = track.artist
-        
     }
     
     func updateTintColor() {
@@ -141,7 +132,6 @@ extension MusicDetailVC {
             // 노래 들으면서 시킹하면, 자꾸 슬라이더가 업데이트 됨, 따라서 시킹아닐때마 슬라이더 업데이트하자
             // TODO: 슬라이더 정보 업데이트
             timeSlider.value = Float(simplePlayer.currentTime/simplePlayer.totalDurationTime)
-            
         }
     }
     

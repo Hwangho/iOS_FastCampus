@@ -73,23 +73,41 @@
                                 <rect key="frame" x="57" y="144" width="300" height="300"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yrU-O7-QaY">
-                                        <rect key="frame" x="0.0" y="0.0" width="300" height="683"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="300" height="578.5"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nq1-yb-vt0">
-                                                <rect key="frame" x="0.0" y="0.0" width="300" height="683"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="300" height="578.5"/>
                                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5kS-zO-Azv">
-                                                <rect key="frame" x="36" y="39" width="228" height="629"/>
-                                                <mutableString key="text">라랄라라라라라라라라라랄라라라라라라라라라랄라라라라라라라라라랄라라라라라라라라라랄라라라라라라라라라랄라라라라라라라라라랄라라라라라라라라라랄라라라라라라라라라랄라라라라라라라라라랄라라라라라라라라라랄라라라라라라라라라랄라라라라라라라라라랄라라라라라라라라라랄라라라라라라라라라랄라라라라라라라라라랄라라라라라라라라라랄라라라라라라라라라랄라라라라라라라라라랄라라라라라라라라라랄라라라라라라라라라랄라라라라라라라라라랄라라라라라라라라라랄라라라라라라라라라랄라라라라라라라라라랄라라라라라라라라라랄라라라라라라라라라랄라라라라라라라라라랄라라라라라라라라라랄라라라라라라라라라랄라라라라라라라라라랄라라라라라라라라라랄라라라라라라라라라랄라라라라라라라라라랄라라라라라라라라라랄라라라라라라라라라랄라라라라라라라라라랄라라라라라라라라라랄라라라라라라라라라랄라라라라라라라라라랄라라라라라라라라라랄라라라라라라라라라랄라라라라라라라라라랄라라라라라라라라라랄라라라라라라라라라랄라라라라라라라라라랄라라라라라라라라</mutableString>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <rect key="frame" x="36" y="39" width="228" height="519.5"/>
+                                                <mutableString key="text">Were you in love with him?
+I guess I'll never really know
+I just know I've felt things I've never felt before
+The kind of wrenching feeling
+I didn't know what it was, it just tore at my heart
+Have you ever felt that way?
+I have
+[sigh]
+I tried to save him, but I think I was the one who was saved
+When I was younger, I wasn't afraid of anything
+I didn't have the slightest fear of dying, no reason for it
+I thought that if I died that's fine with me, anytime at all
+But then I met a certain woman, and I changed
+I started to think that, I wanted to survive
+For the first time, the idea of death began to scare me
+It was on my mind. Never felt that kind of feeling
+Almost paralyzed
+And? Where is she now?
+She... faded off somewhere...</mutableString>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                                 <color key="textColor" red="0.90196078430000004" green="0.90196078430000004" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="bottom" secondItem="5kS-zO-Azv" secondAttribute="bottom" constant="15" id="6QJ-UC-ztm"/>
+                                            <constraint firstAttribute="bottom" secondItem="5kS-zO-Azv" secondAttribute="bottom" constant="20" id="6QJ-UC-ztm"/>
                                             <constraint firstAttribute="bottom" secondItem="nq1-yb-vt0" secondAttribute="bottom" id="MdE-FF-SOO"/>
                                             <constraint firstItem="nq1-yb-vt0" firstAttribute="leading" secondItem="yrU-O7-QaY" secondAttribute="leading" id="Mix-2f-3AW"/>
                                             <constraint firstItem="5kS-zO-Azv" firstAttribute="top" secondItem="yrU-O7-QaY" secondAttribute="top" constant="39" id="Ni1-OF-yeF"/>
@@ -99,9 +117,8 @@
                                             <constraint firstAttribute="trailing" secondItem="nq1-yb-vt0" secondAttribute="trailing" id="zWt-YU-c2g"/>
                                         </constraints>
                                     </view>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TCc-4O-UpO">
-                                        <rect key="frame" x="0.0" y="0.0" width="300" height="300"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TCc-4O-UpO">
+                                        <rect key="frame" x="0.0" y="0.0" width="300" height="578.5"/>
                                         <connections>
                                             <action selector="albumImgPressBtn:" destination="CCV-cJ-jeD" eventType="touchUpInside" id="NG3-Rv-GGI"/>
                                         </connections>
@@ -111,8 +128,12 @@
                                     <constraint firstAttribute="trailing" secondItem="yrU-O7-QaY" secondAttribute="trailing" id="2ts-LG-9tJ"/>
                                     <constraint firstItem="yrU-O7-QaY" firstAttribute="leading" secondItem="dfc-ya-kLW" secondAttribute="leading" id="DHO-kF-4yb"/>
                                     <constraint firstAttribute="bottom" secondItem="yrU-O7-QaY" secondAttribute="bottom" id="FVg-tc-umR"/>
+                                    <constraint firstItem="TCc-4O-UpO" firstAttribute="leading" secondItem="dfc-ya-kLW" secondAttribute="leading" id="I5a-93-TGp"/>
+                                    <constraint firstAttribute="bottom" secondItem="TCc-4O-UpO" secondAttribute="bottom" id="Qgq-vg-Ur5"/>
                                     <constraint firstItem="yrU-O7-QaY" firstAttribute="height" secondItem="dfc-ya-kLW" secondAttribute="height" priority="250" id="VsF-lw-kcg"/>
                                     <constraint firstItem="yrU-O7-QaY" firstAttribute="width" secondItem="dfc-ya-kLW" secondAttribute="width" id="mKj-F3-90u"/>
+                                    <constraint firstAttribute="trailing" secondItem="TCc-4O-UpO" secondAttribute="trailing" id="ntn-i3-PYB"/>
+                                    <constraint firstItem="TCc-4O-UpO" firstAttribute="top" secondItem="dfc-ya-kLW" secondAttribute="top" id="v3u-6W-8DJ"/>
                                     <constraint firstItem="yrU-O7-QaY" firstAttribute="top" secondItem="dfc-ya-kLW" secondAttribute="top" id="vmc-pq-su8"/>
                                 </constraints>
                             </scrollView>

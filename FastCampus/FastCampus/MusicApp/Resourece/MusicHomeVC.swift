@@ -4,13 +4,12 @@
 //
 //  Created by 송황호 on 2020/11/19.
 //
-
-import UIKit
 import AVFoundation
+import UIKit
 
 class MusicHomeVC: UIViewController {
     
-    let trackManager : TrackManager = TrackManager()
+    let trackManager: TrackManager = TrackManager()
     
     @IBOutlet weak var MusicCollectionView: UICollectionView!
     
@@ -18,9 +17,7 @@ class MusicHomeVC: UIViewController {
         super.viewDidLoad()
         MusicCollectionView.dataSource = self
         MusicCollectionView.delegate = self
-
     }
-    
 }
 
 extension MusicHomeVC : UICollectionViewDataSource {
@@ -47,7 +44,7 @@ extension MusicHomeVC : UICollectionViewDataSource {
             
             header.update(with: item)
             header.tapHandler = {item -> Void in
-                print("----> Item title : \(item.convertToTrack()?.title)")
+                print("----> Item title: \(item.convertToTrack()?.title)")
                 
                 let storyboard = UIStoryboard.init(name: "MusicDetail", bundle: nil)
                 
@@ -64,7 +61,7 @@ extension MusicHomeVC : UICollectionViewDataSource {
     }
 }
 
-extension MusicHomeVC : UICollectionViewDelegate{
+extension MusicHomeVC: UICollectionViewDelegate{
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let storyboard = UIStoryboard.init(name: "MusicDetail", bundle: nil)
@@ -78,11 +75,11 @@ extension MusicHomeVC : UICollectionViewDelegate{
     }
 }
 
-extension MusicHomeVC : UICollectionViewDelegateFlowLayout{
+extension MusicHomeVC: UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let spacing : CGFloat = 20
-        let margin : CGFloat = 20
-        let width : CGFloat = (MusicCollectionView.bounds.width - spacing - margin*2)/2
+        let spacing: CGFloat = 20
+        let margin: CGFloat = 20
+        let width: CGFloat = (MusicCollectionView.bounds.width - spacing - margin*2)/2
         let height  = width + 60
         
         return CGSize(width: width, height: height)
@@ -90,13 +87,12 @@ extension MusicHomeVC : UICollectionViewDelegateFlowLayout{
 }
 
 // MARK: CollectionView Cell 관련 코드
-class MUsicHomeCVCell : UICollectionViewCell{
-    static let identifier  = "MUsicHomeCVCell"
+class MUsicHomeCVCell: UICollectionViewCell{
+    static let identifier = "MUsicHomeCVCell"
     
     @IBOutlet weak var musicImg: UIImageView!
     @IBOutlet weak var titleTx: UILabel!
     @IBOutlet weak var subTitleTx: UILabel!
-    
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -118,15 +114,15 @@ class MuiscHomeCVHeaderCell : UICollectionReusableView{
     @IBOutlet weak var albumImg: UIImageView!
     @IBOutlet weak var discriptionLabel: UILabel!
     
-    var item : AVPlayerItem?
-    var tapHandler : ((AVPlayerItem) -> Void)?
+    var item: AVPlayerItem?
+    var tapHandler: ((AVPlayerItem) -> Void)?
     
     override func awakeFromNib() {
         super.awakeFromNib()
         albumImg.layer.cornerRadius = 4
     }
     
-    func update(with item : AVPlayerItem){
+    func update(with item: AVPlayerItem){
         self.item = item
         guard let  track = item.convertToTrack() else {return}
         
@@ -142,14 +138,15 @@ class MuiscHomeCVHeaderCell : UICollectionReusableView{
 
 
 // MARK: Struct 구조체
+
 struct Album{
-    let title : String
-    let tracks : [Track]
+    let title: String
+    let tracks: [Track]
     
     var tumbnail: UIImage?{
         return tracks.first?.artwork
     }
-    var artist : String?{
+    var artist: String?{
         return tracks.first?.artist
     }
     init(title: String, tracks: [Track] ) {
@@ -159,12 +156,12 @@ struct Album{
 }
 
 struct Track{
-    let title : String
-    let artist : String
-    let albumName : String
-    let artwork : UIImage
+    let title: String
+    let artist: String
+    let albumName: String
+    let artwork: UIImage
     
-    init(title:String, artist: String, albumName: String, artwork : UIImage){
+    init(title:String, artist: String, albumName: String, artwork: UIImage){
         self.title = title
         self.artist = artist
         self.albumName = albumName

@@ -38,14 +38,30 @@ extension TodoListVC: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-       let headerCell = TodoListCollectionVIew.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: TodoKistCVHeaderCell.identifier, for: indexPath) as! TodoKistCVHeaderCell
-        
-        return headerCell
+        switch kind {
+        case UICollectionView.elementKindSectionHeader:
+            guard let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: TodoKistCVHeaderCell.identifier, for: indexPath) as? TodoKistCVHeaderCell else {
+                return UICollectionReusableView()
+            }
+            
+            guard let section = TodoViewModel.Section(rawValue: indexPath.section) else {
+                return UICollectionReusableView()
+            }
+            
+            header.sectionTitleLabel.text = section.title
+            return header
+        default:
+            return UICollectionReusableView()
+        }
     }
 }
 
 extension TodoListVC: UICollectionViewDelegateFlowLayout {
-    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let width: CGFloat = collectionView.bounds.width
+        let height: CGFloat = 50
+        return CGSize(width: width, height: height)
+    }
 }
 
 extension TodoListVC: UICollectionViewDelegate {
@@ -67,6 +83,8 @@ class TodoListCVCell: UICollectionViewCell {
 
 class TodoKistCVHeaderCell: UICollectionReusableView {
     static let identifier = "TodoKistCVHeaderCell"
+    
+    @IBOutlet weak var sectionTitleLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

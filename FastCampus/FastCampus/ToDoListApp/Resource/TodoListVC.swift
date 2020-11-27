@@ -11,28 +11,60 @@ class TodoListVC: UIViewController {
 
     @IBOutlet weak var TodoListCollectionVIew: UICollectionView!
     
+    // TODO: TodoViewModel 만들기
+    let todoListViewModel = TodoViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         TodoListCollectionVIew.dataSource = self
         TodoListCollectionVIew.delegate = self
+        
+        // TODO: 키보드 디텍션
+        
+        
+        // TODO: 데이터 불러오기
+        todoListViewModel.loadTasks()
     }
 }
 
+extension TodoListVC {
+    @objc private func adjustInputView(noti: Notification) {
+        guard let userInfo = noti.userInfo else { return }
+        // TODO: 키보드 높이에 따른 인풋뷰 위치 변경
+        
+    }
+}
 
 extension TodoListVC: UICollectionViewDataSource {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 2
+        return todoListViewModel.numOfSection
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 4
+        
+        if section == 0{
+           return todoListViewModel.todayTodos.count
+        } else{
+            return todoListViewModel.upcompingTodos.count
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         guard let cell = TodoListCollectionVIew.dequeueReusableCell(withReuseIdentifier: TodoListCVCell.identifier, for: indexPath) as? TodoListCVCell else {return UICollectionViewCell() }
+        
+        var todo: Todo
+        if indexPath.section == 0 {
+            todo = todoListViewModel.todayTodos[indexPath.item]
+        }else {
+            todo = todoListViewModel.upcompingTodos[indexPath.item]
+        }
+        cell.updateUI(todo: todo)
+        
+        // TODO: todo 를 이용해서 updateUI
+        // TODO: doneButtonHandler 작성
+        // TODO: deleteButtonHandler 작성
         
         return cell
     }
@@ -73,8 +105,45 @@ extension TodoListVC: UICollectionViewDelegate {
 class TodoListCVCell: UICollectionViewCell {
     static let identifier = "TodoListCVCell"
     
+    @IBOutlet weak var checkButton: UIButton!
+    @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var deleteButton: UIButton!
+    @IBOutlet weak var strikeThroughView: UIView!
+    
+    @IBOutlet weak var strikeThroughWidth: NSLayoutConstraint!
+    
+    var doneButtonTapHandler: ((Bool) -> Void)?
+    var deleteButtonTapHandler: (() -> Void)?
+    
     override func awakeFromNib() {
-        superview?.awakeFromNib()
+        super.awakeFromNib()
+        reset()
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        reset()
+    }
+    
+    func updateUI(todo: Todo) {
+        // TODO: 셀 업데이트 하기
+        checkButton.isSelected = todo.isDone
+        descriptionLabel.text = todo.detail
+        descriptionLabel.alpha = todo.isDone ? 0.2 : 1
+        deleteButton.isHidden = todo.isDone == false
+        showStrikeThrough(todo.isDone)
+    }
+    
+    private func showStrikeThrough(_ show: Bool) {
+        if show {
+            strikeThroughWidth.constant = descriptionLabel.bounds.width
+        } else {
+            strikeThroughWidth.constant = 0
+        }
+    }
+    
+    func reset() {
+        // TODO: reset로직 구현
         
     }
 }

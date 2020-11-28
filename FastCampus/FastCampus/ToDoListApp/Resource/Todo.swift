@@ -53,14 +53,14 @@ class TodoManager {
     
     func deleteTodo(_ todo: Todo) {
         //TODO: delete 로직 추가
-        todos = todos.filter{ existiongTodo in
-            return existiongTodo.id != todo.id
+        if let index = todos.firstIndex(of: todo){
+            todos.remove(at: index)
         }
+    // 위와 동일하지만 다른 코딩 방식
+    //        todos = todos.filter{ existiongTodo in
+    //            return existiongTodo.id != todo.id
+    //        }
         saveTodo()
-        // 위와 동일하지만 다른 코딩 방식
-//        if let index = todos.firstIndex(of: todo){
-//            todos.remove(at: index)
-//        }
     }
     
     func updateTodo(_ todo: Todo) {

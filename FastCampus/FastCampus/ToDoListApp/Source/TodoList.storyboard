@@ -36,6 +36,10 @@
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dEx-XL-lCD">
                                                     <rect key="frame" x="22" y="31" width="29" height="28"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="28" id="iMx-d3-SB6"/>
+                                                        <constraint firstAttribute="width" constant="29" id="khZ-OG-wvq"/>
+                                                    </constraints>
                                                     <color key="tintColor" systemColor="systemPinkColor"/>
                                                     <state key="normal" image="checkmark.circle" catalog="system">
                                                         <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="25"/>
@@ -46,7 +50,7 @@
                                                     </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="👻 Weekly iOS Meeting" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GaW-NH-cYz">
-                                                    <rect key="frame" x="61" y="34.5" width="250" height="21"/>
+                                                    <rect key="frame" x="61" y="34.5" width="285" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -66,7 +70,7 @@
                                                     </connections>
                                                 </button>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2s1-Vd-FSA">
-                                                    <rect key="frame" x="61" y="44.5" width="250" height="1"/>
+                                                    <rect key="frame" x="56" y="44.5" width="250" height="1"/>
                                                     <color key="backgroundColor" red="0.7843137255" green="0.7843137255" blue="0.7843137255" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="250" id="Rtu-5J-FjZ"/>
@@ -79,12 +83,11 @@
                                                 <constraint firstItem="dEx-XL-lCD" firstAttribute="centerY" secondItem="w7W-tu-aYp" secondAttribute="centerY" id="Cd8-uD-J3v"/>
                                                 <constraint firstItem="DTx-y9-o7Y" firstAttribute="centerY" secondItem="w7W-tu-aYp" secondAttribute="centerY" id="DAT-ho-0lG"/>
                                                 <constraint firstItem="GaW-NH-cYz" firstAttribute="leading" secondItem="dEx-XL-lCD" secondAttribute="trailing" constant="10" id="Emd-lk-pCU"/>
-                                                <constraint firstItem="2s1-Vd-FSA" firstAttribute="trailing" secondItem="GaW-NH-cYz" secondAttribute="trailing" id="IQ1-yl-Ao5"/>
                                                 <constraint firstItem="2s1-Vd-FSA" firstAttribute="centerY" secondItem="w7W-tu-aYp" secondAttribute="centerY" id="JiT-Nw-SVB"/>
                                                 <constraint firstItem="GaW-NH-cYz" firstAttribute="centerY" secondItem="w7W-tu-aYp" secondAttribute="centerY" id="Kpy-uh-JG6"/>
                                                 <constraint firstAttribute="trailing" secondItem="DTx-y9-o7Y" secondAttribute="trailing" constant="18" id="LEH-2a-t6H"/>
-                                                <constraint firstItem="2s1-Vd-FSA" firstAttribute="leading" secondItem="GaW-NH-cYz" secondAttribute="leading" id="Qrs-NR-Q0S"/>
-                                                <constraint firstItem="DTx-y9-o7Y" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="GaW-NH-cYz" secondAttribute="trailing" constant="15" id="hb4-RW-yNQ"/>
+                                                <constraint firstItem="DTx-y9-o7Y" firstAttribute="leading" secondItem="GaW-NH-cYz" secondAttribute="trailing" constant="15" id="hb4-RW-yNQ"/>
+                                                <constraint firstItem="2s1-Vd-FSA" firstAttribute="leading" secondItem="dEx-XL-lCD" secondAttribute="trailing" constant="5" id="jx5-9u-ld0"/>
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="414" height="90"/>
@@ -92,7 +95,8 @@
                                             <outlet property="checkButton" destination="dEx-XL-lCD" id="Gaz-YY-dFE"/>
                                             <outlet property="deleteButton" destination="DTx-y9-o7Y" id="03t-kh-bNP"/>
                                             <outlet property="descriptionLabel" destination="GaW-NH-cYz" id="vfM-Tf-xgO"/>
-                                            <outlet property="strikeThroughView" destination="GaW-NH-cYz" id="zcU-DG-Wp4"/>
+                                            <outlet property="strikeThroughView" destination="2s1-Vd-FSA" id="j44-6o-Maf"/>
+                                            <outlet property="strikeThroughWidth" destination="Rtu-5J-FjZ" id="EnB-EB-b55"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -372,7 +376,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WQc-Mb-blM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1099" y="345"/>
+            <point key="canvasLocation" x="1099" y="315"/>
         </scene>
         <!--Settings-->
         <scene sceneID="jrT-To-DEn">

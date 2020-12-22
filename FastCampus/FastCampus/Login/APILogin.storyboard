@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Jxq-NZ-kxd">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Apple LoginVC-->
+        <scene sceneID="NfW-Dx-V4m">
+            <objects>
+                <viewController storyboardIdentifier="AppleLoginVC" id="Jxq-NZ-kxd" customClass="AppleLoginVC" customModule="FastCampus" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="6iq-0v-bAN">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="LVz-te-2rt">
+                                <rect key="frame" x="48" y="657" width="318" height="50"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BAY-jh-FCh">
+                                        <rect key="frame" x="0.0" y="0.0" width="318" height="50"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="D4q-V0-jcI"/>
+                                    <constraint firstAttribute="width" constant="318" id="Dn4-fG-6bk"/>
+                                </constraints>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VXB-wb-3Nr">
+                                <rect key="frame" x="57" y="557" width="300" height="50"/>
+                                <color key="backgroundColor" red="0.90196078430000004" green="0.90196078430000004" blue="0.1176470588" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="8v3-tU-GM3"/>
+                                    <constraint firstAttribute="height" constant="50" id="auR-ad-DjR"/>
+                                </constraints>
+                                <size key="titleShadowOffset" width="1" height="0.0"/>
+                                <state key="normal" image="kakao_login_medium_narrow"/>
+                                <connections>
+                                    <action selector="kakaoPressBtn:" destination="Jxq-NZ-kxd" eventType="touchUpInside" id="iYe-aD-TYS"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="HHh-GF-hjO"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="HHh-GF-hjO" firstAttribute="bottom" secondItem="LVz-te-2rt" secondAttribute="bottom" constant="155" id="3k8-tw-XQe"/>
+                            <constraint firstItem="LVz-te-2rt" firstAttribute="centerX" secondItem="6iq-0v-bAN" secondAttribute="centerX" id="ISo-GY-2xx"/>
+                            <constraint firstItem="VXB-wb-3Nr" firstAttribute="centerX" secondItem="6iq-0v-bAN" secondAttribute="centerX" id="bnF-B1-SaD"/>
+                            <constraint firstItem="LVz-te-2rt" firstAttribute="top" secondItem="VXB-wb-3Nr" secondAttribute="bottom" constant="50" id="orD-De-cD7"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="appleSignInButton" destination="LVz-te-2rt" id="qz0-dX-uHv"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="G4T-Mk-VTf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="166.66666666666669" y="-21.428571428571427"/>
+        </scene>
+        <!--Log OutVC-->
+        <scene sceneID="ut0-TB-huQ">
+            <objects>
+                <viewController storyboardIdentifier="LogOutVC" id="tRp-xr-FTI" customClass="LogOutVC" customModule="FastCampus" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="HB8-iM-Xje">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q8i-UE-pd1">
+                                <rect key="frame" x="181" y="308" width="52" height="30"/>
+                                <state key="normal" title="로그아웃"/>
+                                <connections>
+                                    <action selector="LogPutPressButton:" destination="tRp-xr-FTI" eventType="touchUpInside" id="jZq-oG-czV"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tmf-vj-y9V">
+                                <rect key="frame" x="179" y="453" width="56" height="30"/>
+                                <state key="normal" title="연결 끊기"/>
+                                <connections>
+                                    <action selector="cutLogPressBtn:" destination="tRp-xr-FTI" eventType="touchUpInside" id="P0x-Ml-kFJ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="b7B-2l-36e"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="q8i-UE-pd1" firstAttribute="top" secondItem="b7B-2l-36e" secondAttribute="top" constant="264" id="0wP-DK-kGR"/>
+                            <constraint firstItem="q8i-UE-pd1" firstAttribute="centerX" secondItem="HB8-iM-Xje" secondAttribute="centerX" id="NkI-Ig-Tm8"/>
+                            <constraint firstItem="tmf-vj-y9V" firstAttribute="centerX" secondItem="q8i-UE-pd1" secondAttribute="centerX" id="fku-hK-w2h"/>
+                            <constraint firstItem="tmf-vj-y9V" firstAttribute="top" secondItem="q8i-UE-pd1" secondAttribute="bottom" constant="115" id="uxm-m7-wKq"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hdh-bS-wpq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="914" y="-21"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="kakao_login_medium_narrow" width="183" height="45"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

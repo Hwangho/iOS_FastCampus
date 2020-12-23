@@ -55,6 +55,8 @@
 		0EF198E7258F57940001D9C2 /* APILogin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0EF198E6258F57940001D9C2 /* APILogin.storyboard */; };
 		0EF198EC258F57BF0001D9C2 /* AppleLoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EF198EB258F57BF0001D9C2 /* AppleLoginVC.swift */; };
 		0EF199432591E7B50001D9C2 /* LogOutVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EF199422591E7B50001D9C2 /* LogOutVC.swift */; };
+		0EF19955259331FF0001D9C2 /* ContactsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EF19954259331FF0001D9C2 /* ContactsVC.swift */; };
+		0EF1995A259332600001D9C2 /* ContactsNVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EF19959259332600001D9C2 /* ContactsNVC.swift */; };
 		567FF9E0B66E7B906F923591 /* Pods_FastCampusTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CFA3FC5CF20AD5ACFB2F8F5 /* Pods_FastCampusTests.framework */; };
 		6829112612ACDBF978DD41A4 /* Pods_FastCampus_FastCampusUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63763DFE65A272D366B4EA1E /* Pods_FastCampus_FastCampusUITests.framework */; };
 		7886CAA394BF679AFC8BE030 /* Pods_FastCampus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EFC95CDC8141D9AD7E2ADA0 /* Pods_FastCampus.framework */; };
@@ -134,6 +136,8 @@
 		0EF198EB258F57BF0001D9C2 /* AppleLoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleLoginVC.swift; sourceTree = "<group>"; };
 		0EF198F6258F5AC10001D9C2 /* FastCampus.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FastCampus.entitlements; sourceTree = "<group>"; };
 		0EF199422591E7B50001D9C2 /* LogOutVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogOutVC.swift; sourceTree = "<group>"; };
+		0EF19954259331FF0001D9C2 /* ContactsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsVC.swift; sourceTree = "<group>"; };
+		0EF19959259332600001D9C2 /* ContactsNVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsNVC.swift; sourceTree = "<group>"; };
 		0EFC95CDC8141D9AD7E2ADA0 /* Pods_FastCampus.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FastCampus.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		357E8D6213FA1FD69F058E29 /* Pods-FastCampusTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FastCampusTests.release.xcconfig"; path = "Target Support Files/Pods-FastCampusTests/Pods-FastCampusTests.release.xcconfig"; sourceTree = "<group>"; };
 		3D6DC0E6C5515098C313DB2C /* Pods-FastCampusTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FastCampusTests.debug.xcconfig"; path = "Target Support Files/Pods-FastCampusTests/Pods-FastCampusTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -349,6 +353,8 @@
 			isa = PBXGroup;
 			children = (
 				0EF198E6258F57940001D9C2 /* APILogin.storyboard */,
+				0EF19959259332600001D9C2 /* ContactsNVC.swift */,
+				0EF19954259331FF0001D9C2 /* ContactsVC.swift */,
 				0EF198EB258F57BF0001D9C2 /* AppleLoginVC.swift */,
 				0EF199422591E7B50001D9C2 /* LogOutVC.swift */,
 			);
@@ -651,8 +657,10 @@
 				0E3746EB25663EF300E2DB4A /* TrackManager.swift in Sources */,
 				0EEC630D256E125100A26AA8 /* Storage.swift in Sources */,
 				0E37472A2567C36900E2DB4A /* DefaultStyle.swift in Sources */,
+				0EF1995A259332600001D9C2 /* ContactsNVC.swift in Sources */,
 				0E3746852563AF2E00E2DB4A /* ViewController.swift in Sources */,
 				0EEC6317256E126C00A26AA8 /* TodoListViewController.swift in Sources */,
+				0EF19955259331FF0001D9C2 /* ContactsVC.swift in Sources */,
 				0E3746E62566327500E2DB4A /* MusicHomeVC.swift in Sources */,
 				0E3746812563AF2E00E2DB4A /* AppDelegate.swift in Sources */,
 				0E3746832563AF2E00E2DB4A /* SceneDelegate.swift in Sources */,

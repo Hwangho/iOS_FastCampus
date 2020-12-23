@@ -76,10 +76,24 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tmf-vj-y9V">
-                                <rect key="frame" x="179" y="453" width="56" height="30"/>
+                                <rect key="frame" x="179" y="388" width="56" height="30"/>
                                 <state key="normal" title="연결 끊기"/>
                                 <connections>
                                     <action selector="cutLogPressBtn:" destination="tRp-xr-FTI" eventType="touchUpInside" id="P0x-Ml-kFJ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bn8-Nb-EFk">
+                                <rect key="frame" x="181" y="468" width="52" height="30"/>
+                                <state key="normal" title="친구목록"/>
+                                <connections>
+                                    <action selector="profileAcesssAgree:" destination="tRp-xr-FTI" eventType="touchUpInside" id="WYS-N1-jr8"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oHm-EA-Fo3">
+                                <rect key="frame" x="174.5" y="548" width="65" height="30"/>
+                                <state key="normal" title="전화번호부"/>
+                                <connections>
+                                    <action selector="contactsPressButton:" destination="tRp-xr-FTI" eventType="touchUpInside" id="aEw-sv-CZT"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -87,9 +101,13 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="q8i-UE-pd1" firstAttribute="top" secondItem="b7B-2l-36e" secondAttribute="top" constant="264" id="0wP-DK-kGR"/>
+                            <constraint firstItem="oHm-EA-Fo3" firstAttribute="centerX" secondItem="bn8-Nb-EFk" secondAttribute="centerX" id="5l4-Sg-MHr"/>
+                            <constraint firstItem="bn8-Nb-EFk" firstAttribute="centerX" secondItem="tmf-vj-y9V" secondAttribute="centerX" id="Dlb-iF-8IP"/>
                             <constraint firstItem="q8i-UE-pd1" firstAttribute="centerX" secondItem="HB8-iM-Xje" secondAttribute="centerX" id="NkI-Ig-Tm8"/>
+                            <constraint firstItem="oHm-EA-Fo3" firstAttribute="top" secondItem="bn8-Nb-EFk" secondAttribute="bottom" constant="50" id="Ryq-Zh-khQ"/>
                             <constraint firstItem="tmf-vj-y9V" firstAttribute="centerX" secondItem="q8i-UE-pd1" secondAttribute="centerX" id="fku-hK-w2h"/>
-                            <constraint firstItem="tmf-vj-y9V" firstAttribute="top" secondItem="q8i-UE-pd1" secondAttribute="bottom" constant="115" id="uxm-m7-wKq"/>
+                            <constraint firstItem="bn8-Nb-EFk" firstAttribute="top" secondItem="tmf-vj-y9V" secondAttribute="bottom" constant="50" id="pj0-NU-OQM"/>
+                            <constraint firstItem="tmf-vj-y9V" firstAttribute="top" secondItem="q8i-UE-pd1" secondAttribute="bottom" constant="50" id="uxm-m7-wKq"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -97,8 +115,120 @@
             </objects>
             <point key="canvasLocation" x="914" y="-21"/>
         </scene>
+        <!--ContactsVC-->
+        <scene sceneID="5IB-mT-tZR">
+            <objects>
+                <viewController storyboardIdentifier="ContactsVC" title="ContactsVC" id="0j9-RT-X2V" customClass="ContactsVC" customModule="FastCampus" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="j2F-6B-jVQ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fAV-W8-ryS">
+                                <rect key="frame" x="0.0" y="99" width="414" height="763"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="ContactsTVCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ContactsTVCell" rowHeight="91" id="daF-WE-5ap" customClass="ContactsTVCell" customModule="FastCampus" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="91"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="daF-WE-5ap" id="AWA-ju-p2N">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="91"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1v4-O8-Fag">
+                                                    <rect key="frame" x="105" y="35" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="010-7266-5424" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VPM-dd-4Vh">
+                                                    <rect key="frame" x="270" y="35" width="124" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="VPM-dd-4Vh" firstAttribute="centerY" secondItem="AWA-ju-p2N" secondAttribute="centerY" id="0u1-Dd-4oI"/>
+                                                <constraint firstItem="VPM-dd-4Vh" firstAttribute="trailing" secondItem="AWA-ju-p2N" secondAttribute="trailingMargin" id="1T7-h9-ATS"/>
+                                                <constraint firstItem="VPM-dd-4Vh" firstAttribute="leading" relation="lessThanOrEqual" secondItem="1v4-O8-Fag" secondAttribute="trailing" constant="123" id="HCW-Dd-D3F"/>
+                                                <constraint firstItem="1v4-O8-Fag" firstAttribute="centerY" secondItem="AWA-ju-p2N" secondAttribute="centerY" id="UWF-cS-rXK"/>
+                                                <constraint firstItem="1v4-O8-Fag" firstAttribute="leading" secondItem="AWA-ju-p2N" secondAttribute="leading" constant="105" id="r8s-9i-TCg"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="nameLabel" destination="1v4-O8-Fag" id="Owf-ES-E3h"/>
+                                            <outlet property="phoneNumLabel" destination="VPM-dd-4Vh" id="Tly-ZD-iTJ"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SGd-Uv-tOV">
+                                <rect key="frame" x="0.0" y="44" width="414" height="55"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i4a-jj-bOa">
+                                        <rect key="frame" x="20" y="15" width="25" height="25"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="25" id="GZl-bg-wZq"/>
+                                            <constraint firstAttribute="width" constant="25" id="SxG-pe-HMa"/>
+                                        </constraints>
+                                        <state key="normal" image="chevron.backward" catalog="system">
+                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="25"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="backPressButton:" destination="0j9-RT-X2V" eventType="touchUpInside" id="QIQ-vz-Bhf"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="i4a-jj-bOa" firstAttribute="leading" secondItem="SGd-Uv-tOV" secondAttribute="leading" constant="20" symbolic="YES" id="2cU-JP-uaq"/>
+                                    <constraint firstAttribute="height" constant="55" id="IK1-Nr-f1k"/>
+                                    <constraint firstAttribute="width" constant="414" id="Skz-aD-IO7"/>
+                                    <constraint firstItem="i4a-jj-bOa" firstAttribute="centerY" secondItem="SGd-Uv-tOV" secondAttribute="centerY" id="pOl-lS-eTI"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="51H-OH-F7i"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="fAV-W8-ryS" firstAttribute="trailing" secondItem="51H-OH-F7i" secondAttribute="trailing" id="2ff-9X-fb7"/>
+                            <constraint firstAttribute="trailing" secondItem="SGd-Uv-tOV" secondAttribute="trailing" id="Bam-1V-fFl"/>
+                            <constraint firstItem="SGd-Uv-tOV" firstAttribute="top" secondItem="51H-OH-F7i" secondAttribute="top" id="Gbg-9d-rcQ"/>
+                            <constraint firstItem="SGd-Uv-tOV" firstAttribute="leading" secondItem="51H-OH-F7i" secondAttribute="leading" id="JTM-jI-dLc"/>
+                            <constraint firstItem="fAV-W8-ryS" firstAttribute="top" secondItem="SGd-Uv-tOV" secondAttribute="bottom" id="S1E-SY-ARH"/>
+                            <constraint firstItem="fAV-W8-ryS" firstAttribute="leading" secondItem="51H-OH-F7i" secondAttribute="leading" id="i8q-zc-MPq"/>
+                            <constraint firstItem="fAV-W8-ryS" firstAttribute="bottom" secondItem="51H-OH-F7i" secondAttribute="bottom" id="zpa-gI-yaX"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="fQo-RR-Fcy"/>
+                    <connections>
+                        <outlet property="contactTable" destination="fAV-W8-ryS" id="8bA-c3-T6v"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gaF-0X-b4g" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2428" y="-21"/>
+        </scene>
+        <!--ContactsNVC-->
+        <scene sceneID="Rew-VT-Qcu">
+            <objects>
+                <navigationController storyboardIdentifier="ContactsNVC" title="ContactsNVC" automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="nKS-VB-JUM" customClass="ContactsNVC" customModule="FastCampus" customModuleProvider="target" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="3jS-it-HDW">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="0j9-RT-X2V" kind="relationship" relationship="rootViewController" id="ilq-tR-veY"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Hk4-NG-j2J" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1709" y="-21"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="chevron.backward" catalog="system" width="96" height="128"/>
         <image name="kakao_login_medium_narrow" width="183" height="45"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

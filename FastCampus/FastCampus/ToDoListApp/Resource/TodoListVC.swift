@@ -145,7 +145,7 @@ extension TodoListVC: UICollectionViewDataSource {
 
 extension TodoListVC: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width: CGFloat = collectionView.bounds.width
+        let width: CGFloat = TodoListCollectionVIew.bounds.width
         let height: CGFloat = 50
         return CGSize(width: width, height: height)
     }

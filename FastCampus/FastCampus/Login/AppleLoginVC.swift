@@ -54,7 +54,9 @@ class AppleLoginVC: UIViewController{
                     //do something
                     _ = oauthToken
                     
-                    guard let VC = self.storyboard?.instantiateViewController(withIdentifier: "LogOutVC") as? LogOutVC else { return}
+                    guard let VC = self.storyboard?.instantiateViewController(withIdentifier: "ContactsNVC") as? ContactsNVC else { return}
+                    
+                    VC.modalPresentationStyle = .fullScreen
                     
                     self.present(VC, animated: true, completion: nil)
                     
@@ -66,6 +68,7 @@ class AppleLoginVC: UIViewController{
                         else {
                             print("accessTokenInfo() success.")
                             
+                            print("===> \(accessTokenInfo)")
                             //do something
                             _ = accessTokenInfo
                         }

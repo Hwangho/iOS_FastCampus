@@ -13,63 +13,32 @@ import KakaoSDKTalk         // 친구 목록
 import Contacts             // 주소록 가져오기 위해서
 
 
+
 class LogOutVC: UIViewController {
 
-    var contacts: NSMutableArray = NSMutableArray()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+                
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        readContacts()
-    }
-    
-    // 주소록 읽어오기
-    private func readContacts() {
+        let notificationCenter = NotificationCenter.default
+            notificationCenter.addObserver(self, selector: #selector(appMovedToBackground), name: UIApplication.willResignActiveNotification, object: nil)
         
-        let store = CNContactStore()
-  
-        // Permission 획득
-        store.requestAccess(for: .contacts) { (granted, error) in
-            guard granted else {
-                return;
-            }
-            
-            // Request 생성
-            let request: CNContactFetchRequest = self.getCNContactFetchRequest()
-                      
-            // 주소록 읽을 때 정렬해서 읽어오도록 설정
-            
-            request.sortOrder = CNContactSortOrder.userDefault
-                    
-            // Contacts 읽기
-            // 주소록이 1개씩 읽혀서 usingBlock으로 들어온다.
-            try! store.enumerateContacts(with: request, usingBlock: { (contact, stop) in
-                
-                // Phone No가 없을때 return
-                if contact.phoneNumbers.isEmpty {
-                    return
-                }
-                // NSMutableArray Add contact
-                // 읽어온 주소록을 NSMutableArray에 저장
-                self.contacts.add(contact)
-            })
-        }
+        let notificationCenter2 = NotificationCenter.default
+        notificationCenter2.addObserver(self, selector: #selector(ComeBackToapp), name: UIApplication.didBecomeActiveNotification, object: nil)
+
     }
     
-    // Request 생성
-    private func getCNContactFetchRequest() -> CNContactFetchRequest {
-        
-        // 주소록에서 읽어올 key 설정
-        let keys: [CNKeyDescriptor] = [CNContactFormatter.descriptorForRequiredKeys(for: .fullName), CNContactPhoneNumbersKey, CNContactEmailAddressesKey] as! [CNKeyDescriptor]
-    
-        return CNContactFetchRequest(keysToFetch: keys)
+    @objc func appMovedToBackground() {
+        print("App moved to background!")
     }
-    
+    @objc func ComeBackToapp() {
+        print("come back to app!")
+    }
     
     
     // 카카오톡 관련 
@@ -124,7 +93,7 @@ class LogOutVC: UIViewController {
                     if (user.kakaoAccount?.ageRangeNeedsAgreement == true) { scopes.append("age_range") }
 
                     if scopes.count == 0  { return }
-
+                    
                     //필요한 scope으로 토큰갱신을 한다.
                     AuthApi.shared.loginWithKakaoAccount(scopes: scopes) { (_, error) in
                         if let error = error {
@@ -137,14 +106,14 @@ class LogOutVC: UIViewController {
                                 }
                                 else {
                                     print("me() success.")
-
+                                    
                                     //do something
                                     _ = user
                                 }
-
+                                
                             } //UserApi.shared.me()
                         }
-
+                        
                     } //AuthApi.shared.loginWithKakaoAccount(scopes:)
                 }
             }
@@ -154,19 +123,19 @@ class LogOutVC: UIViewController {
                 print(error)
                 
             }
-                else {
-                    print("profile() success.")
-                    
-                    //do something
-                    _ = profile
-                }
+            else {
+                print("profile() success.")
+                
+                //do something
+                _ = profile
             }
+        }
         
         TalkApi.shared.friends {(friends, error) in
             if let error = error {
                 print(error)
                 print("-----> 에러걸림")
-
+                
             }
             else {
                 //do something
@@ -175,19 +144,52 @@ class LogOutVC: UIViewController {
             }
         }
     }
-    
-    
-    @IBAction func contactsPressButton(_ sender: Any) {
-        
-        print("주소로오오오옥 --> \(self.contacts.count)")
-        
-        NotificationCenter.default.post(name: .init("contacts"), object: nil, userInfo: ["contact": contacts])
-        
-        guard let vc = self.storyboard?.instantiateViewController(withIdentifier: ContactsNVC.identifier) as? ContactsNVC else{return }
+
+    @IBAction func firendsListPressButton(_ sender: Any) {
+        guard let vc = self.storyboard?.instantiateViewController(identifier: ContactsVC.identifier) as? ContactsVC else {return}
         
         vc.modalPresentationStyle = .fullScreen
         
-        present(vc, animated: true, completion: nil)
+        self.navigationController?.pushViewController(vc, animated: true)
     }
+    
+    
+    @IBAction func callPressButton(_ sender: Any) {
+        let number = "010-3443-9365"
+        if let url = URL(string: "tel://\(number)") {
+                  UIApplication.shared.openURL(url)
+        }
+    }
+}
 
+
+import MessageUI        // 메시지 보내기
+
+extension LogOutVC: MFMessageComposeViewControllerDelegate{
+    
+    @IBAction func sendMessage(_ sender: Any) {
+        let messageComposer = MFMessageComposeViewController()
+        messageComposer.messageComposeDelegate = self
+        if MFMessageComposeViewController.canSendText(){
+            messageComposer.recipients = ["010-3443-9365"]
+            messageComposer.body = ""
+            
+            self.present(messageComposer, animated: true, completion: nil)
+        }
+    }
+    
+    func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
+        switch result {
+        case MessageComposeResult.sent:
+            print("전송 완료")
+            break
+        case MessageComposeResult.cancelled:
+            print("취소")
+            controller.dismiss(animated: true, completion: nil)
+            break
+        case MessageComposeResult.failed:
+            print("전송 실패")
+            break
+        }
+    }
 }

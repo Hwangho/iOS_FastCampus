@@ -10,29 +10,64 @@ import Contacts
 
 class ContactsVC: UIViewController {
 
+    static let identifier = "ContactsVC"
+    
     @IBOutlet weak var contactTable: UITableView!
     
-    var contacts: NSMutableArray = NSMutableArray()
+    var contactList = [informations]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(takeContacts), name: .init("contacts"), object: nil)
         contactTable.delegate = self
         contactTable.dataSource = self
+        
+        readContacts()
     }
     
-    @objc func takeContacts(_ notification: Notification){
-        guard  let userInfo = notification.userInfo as? [String? : Any] else {return}
-        guard let contacts = userInfo["contact"] as? NSMutableArray else{ return }
+    // 주소록 읽어오기
+    private func readContacts() {
         
-        self.contacts = contacts
+        let store = CNContactStore()
+  
+        store.requestAccess(for: .contacts) { (granted, err) in
+            if let err = err{
+                print("faild" , err)
+                return
+            }
+            if granted{
+                let keys = [CNContactGivenNameKey, CNContactFamilyNameKey, CNContactPhoneNumbersKey]
+                
+                let request = CNContactFetchRequest(keysToFetch:keys as [CNKeyDescriptor])
+                
+                do {
+                    request.sortOrder = CNContactSortOrder.userDefault
+                    
+                    try store.enumerateContacts(with: request, usingBlock: {(contacts, stopPointerIfYouWantToStopEnumerating) in
+                        
+                        let phone_number = contacts.phoneNumbers.first?.value.stringValue ?? ""
+                        
+                        if phone_number != "" {
+                            let full_name = contacts.givenName + " " + contacts.familyName
+                            
+                            let contact_model = informations(fullNmae: full_name, phoneNumber: phone_number)
+                            
+                            self.contactList.append(contact_model)
+                        }
+                    })
+                    self.contactTable.reloadData()
+                }catch let err{
+                    print("err", err)
+                }
+            }
+
+        }
     }
     
     
     @IBAction func backPressButton(_ sender: Any) {
-        print("주소로오오오옥 --> \(self.contacts)")
-        dismiss(animated: true, completion: nil)
+        print("주소로오오오옥 --> \(self.contactList.count)")
+        self.navigationController?.popViewController(animated: true)
+//        dismiss(animated: true, completion: nil)
     }
 
 }
@@ -40,18 +75,16 @@ class ContactsVC: UIViewController {
 extension ContactsVC: UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return contacts.count
+        return self.contactList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = contactTable.dequeueReusableCell(withIdentifier: ContactsTVCell.identifier, for: indexPath) as? ContactsTVCell else { return UITableViewCell() }
         
-//               let section = filteredSections[indexPath.section]
-//               let contact = section.value[indexPath.row]
-//               cell.configure(contact)
+        let rowdata = self.contactList[indexPath.row]
         
+        cell.bind(name: rowdata.fullNmae, phone: rowdata.phoneNumber)
 
-               
                return cell
     }
 }
@@ -83,7 +116,7 @@ class ContactsTVCell: UITableViewCell{
 
 // MARK: Struct 만들기
 struct informations{
-    let fullNmae: String
-    let phoneNumber: Int
+    var fullNmae: String
+    var phoneNumber: String
 }
 

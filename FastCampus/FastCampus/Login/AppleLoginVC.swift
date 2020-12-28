@@ -11,7 +11,7 @@ import KakaoSDKAuth
 import KakaoSDKUser
 import KakaoSDKTalk
 
-
+// 이건 불가능해!! 안돼!
 class AppleLoginVC: UIViewController{
     
     
